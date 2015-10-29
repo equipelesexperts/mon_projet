@@ -7,6 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class RegistrationController extends Controller
 {
     public function indexAction($param) {
-        rakoto
+        
     }
 }
