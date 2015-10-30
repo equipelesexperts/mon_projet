@@ -327,6 +327,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_fos_user_change_password:
 
+        // user_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_homepage')), array (  '_controller' => 'UserBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        // edit_profil
+        if (0 === strpos($pathinfo, '/user/edit') && preg_match('#^/user/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_profil')), array (  '_controller' => 'UserBundle\\Controller\\RegistrationController::editerAction',));
+        }
+
         if (0 === strpos($pathinfo, '/demo')) {
             if (0 === strpos($pathinfo, '/demo/secured')) {
                 if (0 === strpos($pathinfo, '/demo/secured/log')) {

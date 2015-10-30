@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading"><a href="#" class="pull-right">Liste des utilisateur</a> <h4>Ajouter un utilisateur </h4></div>
+    <div class="panel-body">
+        <div class="list-group">
+            <form method="post" {{ form_enctype(form) }}>
+    {{ form_errors(form.username) }}
+    {{ form_label(form.username, 'Login :'|trans) }}
+    {{ form_widget(form.username) }}<br><br>
+
+    {{ form_errors(form.address) }}
+    {{ form_label(form.address, 'Adress :'|trans) }}
+    {{ form_widget(form.address) }}<br>
+
+    {{ form_errors(form.enabled) }}
+    {{ form_label(form.enabled, 'Enabled :'|trans) }}
+    {{ form_widget(form.enabled) }}<br><br>
+
+    {{ form_errors(form.email) }}
+    {{ form_label(form.email, 'Email :'|trans) }}
+    {{ form_widget(form.email) }}<br><br>
+    
+    {{ form_errors(form.plainPassword) }}
+    {{ form_label(form.plainPassword, 'Mot de pass :'|trans) }}
+    {{ form_widget(form.plainPassword) }}
+    <div class="form-group">
+        <div class="col-sm-3 col-sm-9">
+            <button type="submit" class="btn btn-success btn-sm">Enregister</button>
+        </div>
+    </div>
+    </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
