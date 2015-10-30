@@ -23,7 +23,7 @@ class __TwigTemplate_c00c9cd9182ba9649cd18b3edad8db5e1688bc32dfb21fcad89afd6c41f
 \t<head>
 \t\t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">
 \t\t<meta charset=\"utf-8\">
-\t\t<title>Faceboot - A Facebook style template for Bootstrap</title>
+\t\t<title>My project</title>
 \t\t<meta name=\"generator\" content=\"Bootply\" />
 \t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">
 \t\t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">
@@ -49,7 +49,7 @@ class __TwigTemplate_c00c9cd9182ba9649cd18b3edad8db5e1688bc32dfb21fcad89afd6c41f
             \t</ul>
                
                 <ul class=\"nav hidden-xs\" id=\"lg-menu\">
-                    <li class=\"active\"><a href=\"#featured\"><i class=\"glyphicon glyphicon-list-alt\"></i> Featured</a></li>
+                    <li class=\"active\"><a href=\"#featured\"><i class=\"glyphicon glyphicon-list-alt\"></i></a></li>
                     <li><a href=\"#stories\"><i class=\"glyphicon glyphicon-list\"></i> Stories</a></li>
                     <li><a href=\"#\"><i class=\"glyphicon glyphicon-paperclip\"></i> Saved</a></li>
                     <li><a href=\"#\"><i class=\"glyphicon glyphicon-refresh\"></i> Refresh</a></li>
