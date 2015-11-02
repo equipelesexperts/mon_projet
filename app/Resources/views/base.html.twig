@@ -6,6 +6,12 @@
         {% block stylesheets %}
         <link href="{{ asset('bundles/boostrap/css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('bundles/commun/css/styles.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgrid.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/skins/dhtmlxgrid_dhx_skyblue.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/skins/dhtmlxgrid_dhx_terrace.css') }}" type="text/css" media="all" />
+        <link href="{{ asset('bundles/dhtmlx/dhtmlxCalendar/codebase/dhtmlxcalendar.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('bundles/dhtmlx/dhtmlxCalendar/codebase/skins/dhtmlxcalendar_dhx_terrace.css') }}" rel="stylesheet" type="text/css" >
+
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -246,18 +252,10 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <p>
-                                            <a href="#" class="pull-right">©Copyright 2013</a>
+                                            <a href="#" class="pull-right">©Copyright 2015</a>
                                         </p>
                                     </div>
                                 </div>
-
-                                <hr>
-
-                                <h4 class="text-center">
-                                    <a href="http://bootply.com/96266" target="ext">Download this Template @Bootply</a>
-                                </h4>
-
-                                <hr>
 
 
                             </div><!-- /col-9 -->
@@ -314,6 +312,19 @@
         <script src="{{ asset('bundles/commun/js/jquery.min.js') }}"></script>
         <script src="{{ asset('bundles/commun/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/commun/js/scripts.js') }}"></script>	
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxcommon.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgrid.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgridcell.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_start.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_splt.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_pgn.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxConnector/codebase/connector.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxDataProcessor/codebase/dhtmlxdataprocessor.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_link.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxCalendar/codebase/dhtmlxcalendar.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_dhxcalendar.js') }}"></script>
         {% endblock %}
     </body>
 </html>

@@ -332,9 +332,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_homepage')), array (  '_controller' => 'UserBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        // edit_profil
-        if (0 === strpos($pathinfo, '/user/edit') && preg_match('#^/user/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_profil')), array (  '_controller' => 'UserBundle\\Controller\\RegistrationController::editerAction',));
+        if (0 === strpos($pathinfo, '/user')) {
+            // edit_profil
+            if (0 === strpos($pathinfo, '/user/edit') && preg_match('#^/user/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_profil')), array (  '_controller' => 'UserBundle\\Controller\\RegistrationController::editerAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/user/liste')) {
+                // lister_user
+                if ($pathinfo === '/user/lister') {
+                    return array (  '_controller' => 'UserBundle\\Controller\\RegistrationController::listerAction',  '_route' => 'lister_user',);
+                }
+
+                // lister_user_xml
+                if ($pathinfo === '/user/liste') {
+                    return array (  '_controller' => 'UserBundle\\Controller\\RegistrationController::listeAction',  '_route' => 'lister_user_xml',);
+                }
+
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/demo')) {

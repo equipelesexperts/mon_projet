@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Resources/views/Default/index.html.twig</file>
-            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Resources/views/Default/ajout.html.twig</file>
-            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Resources/views/Default/index.html.twig</file>
             <file>file:/D:/wamp/www/my_projet/src/UserBundle/Controller/RegistrationController.php</file>
-            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Controller/DefaultController.php</file>
-            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Controller/DefaultController.php</file>
+            <file>file:/D:/wamp/www/my_projet/app/Resources/views/base.html.twig</file>
+            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Entity/User.php</file>
+            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Resources/views/Registration/editer.html.twig</file>
+            <file>file:/D:/wamp/www/my_projet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php</file>
+            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Form/UserType.php</file>
+            <file>file:/D:/wamp/www/my_projet/app/config/config.yml</file>
+            <file>file:/D:/wamp/www/my_projet/app/config/routing.yml</file>
+            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Resources/config/routing.yml</file>
         </group>
     </open-files>
 </project-private>

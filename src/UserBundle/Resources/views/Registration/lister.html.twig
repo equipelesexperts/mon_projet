@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading"><a href="javascript:void()" class="pull-right"></a> <h4>Liste des utilisateurs </h4></div>
+    <div class="panel-body">
+        <div class="list-group">
+
+            <div id="gridbox" style="width:100%; overflow:hidden; position: relative;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{%block javascripts%}
+{{parent()}}
+<script>
+    var grid = new dhtmlXGridObject('gridbox');
+    var custom_sort = function(a, b, ord, aid, bid) {
+        var aid = aid.split("_");
+        var bid = bid.split("_");
+        if (aid[0] === "top")
+            return -1;
+        if (bid[0] === "top")
+            return -1;
+
+        return ((a > b) ? 1 : -1) * (ord === "asc" ? 1 : -1);
+    };
+
+
+    grid.setHeader("<div style='width:100%; text-align:left;'>Nom</div>,Enregistrer,Supprimer");
+    grid.setInitWidths("*,100,100");
+    grid.enableSmartRendering(true);
+    grid.setColAlign("left,center,center");
+    grid.setColTypes("ed,ro,ro");
+    grid.setColSorting("str,na,na");
+    grid.enableMultiline(true);
+    grid.setCustomSorting(custom_sort, 0);
+    grid.setSkin("dhx_terrace");
+    grid.enableAutoHeigth(true);
+    grid.objBox.style.overflowX = "hidden";
+    grid.enableEditEvents(true, false, true);
+    grid.init();
+    grid.load("{{ path('lister_user_xml') }}", function() {
+        $('#msg-success p#modal-message').html('Qualification du compte  modifiée avec succès.');
+        $('#msg-success').modal('show');
+    });
+</script>
+{% endblock %}

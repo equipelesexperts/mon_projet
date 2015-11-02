@@ -5,6 +5,7 @@ namespace UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ProjetBundle\Form\UserType;
+use Symfony\Component\HttpFoundation\Response;
 
 class RegistrationController extends Controller {
 
@@ -35,5 +36,21 @@ class RegistrationController extends Controller {
             'id'=>$id
         );
     }
-
+    
+    /**
+     * @Template()
+     */
+    public function listerAction() {
+        return array();
+    }
+    public function listeAction() {
+        $em=  $this->getDoctrine()->getEntityManager();
+        $liste=$em->getRepository("ProjetBundle:User")->findAll();
+         return new Response ($this->renderView('UserBundle:Registration:liste.xml.twig', array(
+                'liste' => $liste,
+            )),
+            200,
+            array('Content-Type' => 'Application/xml')
+        );
+    }
 }

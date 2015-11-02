@@ -4,3 +4,9 @@ user_homepage:
 edit_profil:
     path:     /user/edit/{id}
     defaults: { _controller: UserBundle:Registration:editer }
+lister_user:
+    path:     /user/lister
+    defaults: { _controller: UserBundle:Registration:lister }
+lister_user_xml:
+    path:     /user/liste
+    defaults: { _controller: UserBundle:Registration:liste }

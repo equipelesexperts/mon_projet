@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="panel panel-default">
-    <div class="panel-heading"><a href="#" class="pull-right">Liste des utilisateur</a> <h4>Ajouter un utilisateur </h4></div>
+    <div class="panel-heading"><a href="{{path('lister_user')}}" class="pull-right">Liste des utilisateur</a> <h4>Ajouter un utilisateur </h4></div>
     <div class="panel-body">
         <div class="list-group">
             <form method="post" {{ form_enctype(form) }}>
@@ -21,18 +21,26 @@
     {{ form_errors(form.email) }}
     {{ form_label(form.email, 'Email :'|trans) }}
     {{ form_widget(form.email) }}<br><br>
-    
+
     {{ form_errors(form.plainPassword) }}
     {{ form_label(form.plainPassword, 'Mot de pass :'|trans) }}
     {{ form_widget(form.plainPassword) }}
-    <div class="form-group">
-        <div class="col-sm-3 col-sm-9">
-            <button type="submit" class="btn btn-success btn-sm">Enregister</button>
-        </div>
-    </div>
-    </form>
+                <div class="form-group">
+                    <div class="col-sm-3 col-sm-9">
+                        <button type="submit" class="btn btn-success btn-sm">Enregister</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
+{% endblock %}
+{%block javascript%}
+{{parent()}}
+<script>
+    {%if id!=app.user.id%}
+    $('div.panel-default').find('input').attr('disabled', 'disabled')
+    {%endif%}
+</script>
 {% endblock %}
