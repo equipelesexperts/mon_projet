@@ -145,9 +145,17 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
                                 <a href=\"/\" class=\"navbar-brand logo\">b</a>
                             </div>
                             <nav class=\"collapse navbar-collapse\" role=\"navigation\">
-                                <form class=\"navbar-form navbar-left\">
+                                <form class=\"navbar-form navbar-left\" action=\"";
+        // line 70
+        echo $this->env->getExtension('routing')->getPath("recherche_user");
+        echo "\" method=\"POST\">
                                     <div class=\"input-group input-group-sm\" style=\"max-width:360px;\">
-                                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"srch-term\" id=\"srch-term\">
+                                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"srch-term\" id=\"srch-term\" value=\"";
+        // line 72
+        if (array_key_exists("rech", $context)) {
+            echo twig_escape_filter($this->env, (isset($context["rech"]) ? $context["rech"] : $this->getContext($context, "rech")), "html", null, true);
+        }
+        echo "\">
                                         <div class=\"input-group-btn\">
                                             <button class=\"btn btn-default\" type=\"submit\"><i class=\"glyphicon glyphicon-search\"></i></button>
                                         </div>
@@ -533,6 +541,6 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
 
     public function getDebugInfo()
     {
-        return array (  519 => 327,  515 => 326,  511 => 325,  507 => 324,  503 => 323,  499 => 322,  495 => 321,  491 => 320,  487 => 319,  483 => 318,  479 => 317,  475 => 316,  471 => 315,  467 => 314,  463 => 313,  458 => 312,  455 => 311,  322 => 111,  319 => 110,  315 => 310,  305 => 302,  296 => 300,  292 => 299,  286 => 296,  280 => 292,  278 => 291,  275 => 290,  265 => 282,  256 => 280,  252 => 279,  246 => 276,  240 => 272,  237 => 271,  234 => 270,  232 => 269,  202 => 241,  200 => 110,  184 => 97,  178 => 96,  175 => 95,  98 => 20,  95 => 19,  88 => 13,  84 => 12,  80 => 11,  76 => 10,  72 => 9,  68 => 8,  63 => 7,  60 => 6,  54 => 5,  48 => 329,  45 => 311,  43 => 19,  36 => 16,  34 => 6,  30 => 5,  24 => 1,);
+        return array (  527 => 327,  523 => 326,  519 => 325,  515 => 324,  511 => 323,  507 => 322,  503 => 321,  499 => 320,  495 => 319,  491 => 318,  487 => 317,  483 => 316,  479 => 315,  475 => 314,  471 => 313,  466 => 312,  463 => 311,  330 => 111,  327 => 110,  323 => 310,  313 => 302,  304 => 300,  300 => 299,  294 => 296,  288 => 292,  286 => 291,  283 => 290,  273 => 282,  264 => 280,  260 => 279,  254 => 276,  248 => 272,  245 => 271,  242 => 270,  240 => 269,  210 => 241,  208 => 110,  192 => 97,  186 => 96,  183 => 95,  155 => 72,  150 => 70,  98 => 20,  95 => 19,  88 => 13,  84 => 12,  80 => 11,  76 => 10,  72 => 9,  68 => 8,  63 => 7,  60 => 6,  54 => 5,  48 => 329,  45 => 311,  43 => 19,  36 => 16,  34 => 6,  30 => 5,  24 => 1,);
     }
 }

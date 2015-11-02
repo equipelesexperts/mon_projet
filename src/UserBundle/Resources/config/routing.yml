@@ -8,5 +8,8 @@ lister_user:
     path:     /user/lister
     defaults: { _controller: UserBundle:Registration:lister }
 lister_user_xml:
-    path:     /user/liste
-    defaults: { _controller: UserBundle:Registration:liste }
+    path:     /user/liste/{rech}
+    defaults: { _controller: UserBundle:Registration:liste, rech:0}
+recherche_user:
+    path:     /user/recherche
+    defaults: { _controller: UserBundle:Registration:recherche}

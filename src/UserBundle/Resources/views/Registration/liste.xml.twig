@@ -1,14 +1,22 @@
 <rows>
     <row id="top_0" >
         <cell> </cell>
+        <cell> </cell>
         <cell><![CDATA[<button type="submit" class="enregistrer" onClick="javascript:ajouter($(this));" style="background-size: 70% auto;"></button>]]></cell>
         <cell ></cell>
-    </row> 
+    </row>
+    {%if liste|length>0%}
     {% for u in liste %}
     <row id="{{ u.id }}" >
-        <cell> {{ u.username }}</cell>
-        <cell><![CDATA[<button type="submit" class="enregistrer" onClick="javascript:modifier($(this), {{ u.id }});" style="background-size: 70% auto;"></button>]]></cell>
-        <cell ><![CDATA[<a class="supprimer" data-toggle="modal" data-target="#deleteModal{{ u.id }}" onClick="$('#deleteModal{{ u.id }}').modal('show');" href="javascript:void(0);">&nbsp;</a>]]></cell>
+        <cell class="  serializable " type="ro"><![CDATA[<a href="{{path('edit_profil',{'id':u.id})}}">{{ u.username }}</a>]]></cell>
+        <cell class="  serializable " type="ro"><![CDATA[<a href="javascript:void(0)">{{ u.email }}</a>]]></cell>
+        <cell class="  serializable" type="ro"><![CDATA[<button type="submit" class="enregistrer" onClick="javascript:modifier($(this), {{ u.id }});" style="background-size: 70% auto;"></button>]]></cell>
+        <cell class="  serializable" type="ro"><![CDATA[<a class="supprimer" data-toggle="modal" data-target="#deleteModal{{ u.id }}" onClick="$('#deleteModal{{ u.id }}').modal('show');" href="javascript:void(0);">&nbsp;</a>]]></cell>
     </row> 
     {% endfor %}
+    {% else %}
+    <row id="" >
+        <cell class="text-center  serializable " type="ro">Pas de resultats</cell>
+    </row>
+    {% endif %}
 </rows>

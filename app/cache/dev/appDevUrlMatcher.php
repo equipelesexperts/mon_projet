@@ -345,10 +345,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
                 // lister_user_xml
-                if ($pathinfo === '/user/liste') {
-                    return array (  '_controller' => 'UserBundle\\Controller\\RegistrationController::listeAction',  '_route' => 'lister_user_xml',);
+                if (preg_match('#^/user/liste(?:/(?P<rech>[^/]++))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'lister_user_xml')), array (  '_controller' => 'UserBundle\\Controller\\RegistrationController::listeAction',  'rech' => 0,));
                 }
 
+            }
+
+            // recherche_user
+            if ($pathinfo === '/user/recherche') {
+                return array (  '_controller' => 'UserBundle\\Controller\\RegistrationController::rechercheAction',  '_route' => 'recherche_user',);
             }
 
         }

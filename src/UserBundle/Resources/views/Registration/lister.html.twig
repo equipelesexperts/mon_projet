@@ -27,22 +27,25 @@
     };
 
 
-    grid.setHeader("<div style='width:100%; text-align:left;'>Nom</div>,Enregistrer,Supprimer");
-    grid.setInitWidths("*,100,100");
+    grid.setHeader("<div style='width:100%; text-align:left;'>Nom</div>,<div style='width:100%; text-align:left;'>Email</div>,Enregistrer,Supprimer");
+    grid.setInitWidths("*,*,100,100");
     grid.enableSmartRendering(true);
-    grid.setColAlign("left,center,center");
-    grid.setColTypes("ed,ro,ro");
-    grid.setColSorting("str,na,na");
+    grid.setColAlign("left,left,center,center");
+    grid.setColTypes("ed,ro,ro,ro");
+    grid.setColSorting("str,str,na,na");
     grid.enableMultiline(true);
     grid.setCustomSorting(custom_sort, 0);
     grid.setSkin("dhx_terrace");
     grid.enableAutoHeigth(true);
     grid.objBox.style.overflowX = "hidden";
-    grid.enableEditEvents(true, false, true);
+    grid.enableEditEvents(true,false, false, true);
     grid.init();
-    grid.load("{{ path('lister_user_xml') }}", function() {
-        $('#msg-success p#modal-message').html('Qualification du compte  modifiée avec succès.');
-        $('#msg-success').modal('show');
+    {%if rech is defined and rech!=""%}
+    grid.load("{{ path('lister_user_xml',{'rech':rech}) }}", function() {        
     });
+    {%else%}
+    grid.load("{{ path('lister_user_xml') }}", function() {        
+    });
+    {%endif%}
 </script>
 {% endblock %}

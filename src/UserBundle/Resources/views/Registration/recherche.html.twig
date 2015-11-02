@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading"><a href="javascript:void()" class="pull-right"></a> <h4>Liste des utilisateurs </h4></div>
+    <div class="panel-body">
+        <div class="list-group">
+            {#<table>
+                <thead>
+                    <tr>
+                        <th>Login</th>
+                        <th>E-mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+            {%for u in liste%}
+                    <tr>
+                        <td><a href="{{ path('edit_profil',{'id':u.id}) }}">{{u.username}}</a></td>
+                        <td>{{u.email}} </td>
+                    </tr>
+            {%endfor%}
+                </tbody>
+            </table>#}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{%block javascripts%}
+{{parent()}}
+<script>
+</script>
+{% endblock %}
