@@ -1,14 +1,12 @@
 <rows>
-    <row id="top_0" >
-        <cell> </cell>
-        <cell> </cell>
-        <cell><![CDATA[<button type="submit" class="enregistrer" onClick="javascript:ajouter($(this));" style="background-size: 70% auto;"></button>]]></cell>
-        <cell ></cell>
-    </row>
     {%if liste|length>0%}
     {% for u in liste %}
     <row id="{{ u.id }}" >
-        <cell class="  serializable " type="ro"><![CDATA[<a href="{{path('edit_profil',{'id':u.id})}}">{{ u.username }}</a>]]></cell>
+        <cell class="  serializable " type="ro"><![CDATA[ {%if u.lastFichier is not null%} 
+                                            <img id="" style="-webkit-border-radius: 369px;-webkit-border-top-left-radius: 331px;-moz-border-radius: 369px;-moz-border-radius-topleft: 331px;border-radius: 369px;border-top-left-radius: 331px;width: 41px; height: 41px;top:-46px;margin-right: 25px;" src="{{ asset('../web/uploads/'~u.lastFichier.nom)}}" />
+                {%else%}
+                                            <i class="glyphicon glyphicon-user"></i>
+                {%endif%}<a href="{{path('edit_profil',{'id':u.id})}}">{{ u.username }}</a>]]></cell>
         <cell class="  serializable " type="ro"><![CDATA[<a href="javascript:void(0)">{{ u.email }}</a>]]></cell>
         <cell class="  serializable" type="ro"><![CDATA[<button type="submit" class="enregistrer" onClick="javascript:modifier($(this), {{ u.id }});" style="background-size: 70% auto;"></button>]]></cell>
         <cell class="  serializable" type="ro"><![CDATA[<a class="supprimer" data-toggle="modal" data-target="#deleteModal{{ u.id }}" onClick="$('#deleteModal{{ u.id }}').modal('show');" href="javascript:void(0);">&nbsp;</a>]]></cell>

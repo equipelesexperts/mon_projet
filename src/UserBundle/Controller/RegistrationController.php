@@ -26,14 +26,32 @@ class RegistrationController extends Controller {
             $form->bind($rq);
             $data = $rq->request->get('projetbundle_user');
             $password = $data['plainPassword'];
-            $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
-            $user->setPassword($encoder->encodePassword($password, $user->getSalt()));
+            if ($password != "") {
+                $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+                $user->setPassword($encoder->encodePassword($password, $user->getSalt()));
+            }
             $em->persist($user);
+            if ($rq->files->get('photo') != null) {
+                $destination = __DIR__ . '/../../../web/uploads';
+                @mkdir($destination, 0755, true);
+                $fichierImport = $rq->files->get('photo');
+                $tNomFichier = explode('.', $fichierImport->getClientOriginalName());
+                $extension = $tNomFichier[count($tNomFichier) - 1];
+                $nomFichier = $user;
+                $fichierImport->move($destination, $fichierImport->getClientOriginalName());
+                $file = new \UserBundle\Entity\Fichier();
+                $file->setNom($fichierImport->getClientOriginalName());
+                $file->setUser($user);
+                $em->persist($file);
+            }
             $em->flush();
         }
+        $image=$user->getLastFichier();
         return array(
+            'image'=>$image,
             'form' => $form->createView(),
-            'id' => $id
+            'id' => $id,
+            'user'=>$user
         );
     }
 
@@ -44,23 +62,22 @@ class RegistrationController extends Controller {
         return array();
     }
 
-    
     public function rechercheAction() {
-        $rech=  $this->getRequest()->request->get('srch-term');
-        return new Response($this->renderView('UserBundle:Registration:lister.html.twig',array('rech' => $rech)));
+        $rech = $this->getRequest()->request->get('srch-term');
+        return new Response($this->renderView('UserBundle:Registration:lister.html.twig', array('rech' => $rech)));
     }
 
-    public function listeAction($rech=null) {
+    public function listeAction($rech = null) {
         $em = $this->getDoctrine()->getEntityManager();
-        if($rech!=null){
-        $liste = $em->getRepository("ProjetBundle:User")->createQueryBuilder('u')
-                ->Where('u.email LIKE :rech')
-                ->orWhere('u.username LIKE :rech')
-                ->setParameter('rech', $rech)
-                ->getQuery()
-                ->getResult();
-        ;
-        }else{
+        if ($rech != null) {
+            $liste = $em->getRepository("ProjetBundle:User")->createQueryBuilder('u')
+                    ->Where('u.email LIKE :rech')
+                    ->orWhere('u.username LIKE :rech')
+                    ->setParameter('rech', $rech)
+                    ->getQuery()
+                    ->getResult();
+            ;
+        } else {
             $liste = $em->getRepository("ProjetBundle:User")->findAll();
         }
         return new Response($this->renderView('UserBundle:Registration:liste.xml.twig', array(

@@ -80,6 +80,9 @@
                                         <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a>
                                     </li>
                                     <li>
+                                        <a href="{{path('lister_user')}}" class=""><i class="glyphicon glyphicon-user"></i><i class="glyphicon glyphicon-user"></i>Amis</a>
+                                    </li>
+                                    <li>
                                         <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
                                     </li>
                                     <li>
@@ -88,7 +91,13 @@
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
+                                        <a href="#" class="dropdown-toggle no-padding"  data-toggle="dropdown">
+                {%if app.user.lastFichier is not null%} 
+                                            <img id="" style="-webkit-border-radius: 369px;-webkit-border-top-left-radius: 331px;-moz-border-radius: 369px;-moz-border-radius-topleft: 331px;border-radius: 369px;border-top-left-radius: 331px;width: 41px; height: 41px;top:-46px;margin-right: 25px;" src="{{ asset('../web/uploads/'~app.user.lastFichier.nom)}}" />
+                {%else%}
+                                            <i class="glyphicon glyphicon-user"></i>
+                {%endif%}
+                                        </a>
                                         <ul class="dropdown-menu">
 
 
@@ -272,59 +281,59 @@
         <div class="modal" id="erreur">
             <div class="modal-dialog">
                 <div class="modal-content panel panel-danger">
-                    <div class="modal-header panel-heading">
-                        <h4 class="modal-title">{{ 'modal.titleerreur'|trans({}, "messages", app.request.locale) }}</h4>
-                    </div>
-                    <div class="modal-body">
+                                                <div class="modal-header panel-heading">
+                                                    <h4 class="modal-title">{{ 'modal.titleerreur'|trans({}, "messages", app.request.locale) }}</h4>
+                                                </div>
+                                                <div class="modal-body">
                 {% for flashMessage in erreurs %}
-                        <p id="modal-message" class="text-danger">{{ flashMessage }}</p>
+                                                    <p id="modal-message" class="text-danger">{{ flashMessage }}</p>
                 {% endfor %}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">OK</button>
-                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">OK</button>
+                                                </div>
+                                            </div>
                 </div>
             </div>
-        </div>
             {% endif %}
 
             {% if infos|length > 0 %}
-        <div class="modal" id="info">
-            <div class="modal-dialog">
-                <div class="modal-content panel panel-success">
-                    <div class="modal-header panel-heading">
-                        <h4 class="modal-title">{{ 'modal.titleinfo'|trans({}, "messages", app.request.locale) }}</h4>
-                    </div>
-                    <div class="modal-body">
+            <div class="modal" id="info">
+                <div class="modal-dialog">
+                    <div class="modal-content panel panel-success">
+                                                        <div class="modal-header panel-heading">
+                                                            <h4 class="modal-title">{{ 'modal.titleinfo'|trans({}, "messages", app.request.locale) }}</h4>
+                                                        </div>
+                                                        <div class="modal-body">
                 {% for flashMessage in infos %}
-                        <p id="modal-message" class="text-success">{{ flashMessage }}</p>
+                                                            <p id="modal-message" class="text-success">{{ flashMessage }}</p>
                 {% endfor %}
-                    </div>
-                    <div class="modal-footer">
+                                                        </div>
+                                                        <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-success" data-dismiss="modal">OK</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
             {% endif %}
         {% endblock %}
         {% block javascripts %}
-        <script src="{{ asset('bundles/commun/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('bundles/commun/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('bundles/commun/js/scripts.js') }}"></script>	
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxcommon.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgrid.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgridcell.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_start.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_splt.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_pgn.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxConnector/codebase/connector.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxDataProcessor/codebase/dhtmlxdataprocessor.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_link.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxCalendar/codebase/dhtmlxcalendar.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_dhxcalendar.js') }}"></script>
+            <script src="{{ asset('bundles/commun/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('bundles/commun/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('bundles/commun/js/scripts.js') }}"></script>	
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxcommon.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgrid.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgridcell.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_start.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_splt.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_pgn.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxConnector/codebase/connector.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxDataProcessor/codebase/dhtmlxdataprocessor.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_link.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxCalendar/codebase/dhtmlxcalendar.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_dhxcalendar.js') }}"></script>
         {% endblock %}
-    </body>
-</html>
+        </body>
+    </html>

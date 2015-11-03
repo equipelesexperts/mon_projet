@@ -5,7 +5,18 @@
     <div class="panel-heading"><a href="{{path('lister_user')}}" class="pull-right">Liste des utilisateur</a> <h4>Ajouter un utilisateur </h4></div>
     <div class="panel-body">
         <div class="list-group">
-            <form method="post" {{ form_enctype(form) }}>
+
+            <form method="post" {{ form_enctype(form) }} enctype="multipart/form-data">
+                <div class="col-md-3 " id="placeavatar" style="height: available;height: 200px;" >
+                    <a class="btn btn-default btn-lg" href="javascript:void(0)" onclick="$('input#ajoutPoto').click();"><i class="glyphicon glyphicon-camera"></i></a>
+                    <input type="file" class="hide" id="ajoutPoto" name="photo" onchange="$('#info_envoyer_fichier').modal('show');
+                            afficher(event, $(this));">
+                {%if image is not null%} 
+                <img id="image" src="{{ asset('../web/uploads/'~image.nom)}}" style="width: 100%; height: 77%;margin-top:-46px;z-index:-11111;"/>
+                {%endif%}
+                </div>
+                
+                <div class="col-md-9" >
     {{ form_errors(form.username) }}
     {{ form_label(form.username, 'Login :'|trans) }}
     {{ form_widget(form.username) }}<br><br>
@@ -25,22 +36,49 @@
     {{ form_errors(form.plainPassword) }}
     {{ form_label(form.plainPassword, 'Mot de pass :'|trans) }}
     {{ form_widget(form.plainPassword) }}
-                <div class="form-group">
-                    <div class="col-sm-3 col-sm-9">
-                        <button type="submit" class="btn btn-success btn-sm">Enregister</button>
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-9">
+                            <button type="submit" class="btn btn-success btn-sm">Enregister</button>
+                        </div>
                     </div>
                 </div>
             </form>
+
+
         </div>
     </div>
 </div>
 
 {% endblock %}
-{%block javascript%}
+{%block javascripts%}
 {{parent()}}
 <script>
+    $("input#projetbundle_user_plainPassword").attr('required',false);
     {%if id!=app.user.id%}
-    $('div.panel-default').find('input').attr('disabled', 'disabled')
+    $('div.panel-default').find('input').attr('disabled', 'disabled');
     {%endif%}
+    {#function modifPhoto() {
+        $("form#formFichier").append("<iframe name='ttmt' id='ttmt' frameborder='0' height='0' width='0' style='background-color: #fff;' /> ");
+        $("form#formFichier").submit();
+        $('#ttmt').load(function() {
+            var resultat = $(this).contents().find('body').html();
+            if ($.trim(resultat) != 0) {
+                    
+            }
+            else {
+
+            }
+        });
+    }
+    ;#}
+    function afficher(event, obj) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        {#$('div#placeavatar').css("background-image",'url('+URL.createObjectURL(event.target.files[0])+')');
+        $('div#placeavatar').css("background-size","100%");
+        #}
+        $("div#placeavatar").find('img#image').remove();
+        $('div#placeavatar').append('<img id="image" style="width: 100%; height: 77%;margin-top:-46px;z-index:-11111;"/>');
+        $("div#placeavatar").find('img#image').fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+    }
 </script>
 {% endblock %}

@@ -29,6 +29,12 @@ class User extends BaseUser
      */
     private $address;
 
+   /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Fichier", mappedBy="user")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $fichier;
 
     /**
      * Get id
@@ -61,5 +67,52 @@ class User extends BaseUser
     public function getAddress()
     {
         return $this->address;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fichier = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add fichier
+     *
+     * @param \UserBundle\Entity\Fichier $fichier
+     * @return User
+     */
+    public function addFichier(\UserBundle\Entity\Fichier $fichier)
+    {
+        $this->fichier[] = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Remove fichier
+     *
+     * @param \UserBundle\Entity\Fichier $fichier
+     */
+    public function removeFichier(\UserBundle\Entity\Fichier $fichier)
+    {
+        $this->fichier->removeElement($fichier);
+    }
+
+    /**
+     * Get fichier
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFichier()
+    {
+        return $this->fichier;
+    }
+    public function getLastFichier(){
+        $image=null;
+        if($this->getFichier()->count()>0){
+         $image=$this->getFichier()->last();   
+        }
+        return $image;
     }
 }

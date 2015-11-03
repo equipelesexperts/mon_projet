@@ -41,12 +41,12 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
         ";
         // line 19
         $this->displayBlock('body', $context, $blocks);
-        // line 311
+        // line 320
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 329
-        echo "    </body>
-</html>
+        // line 338
+        echo "        </body>
+    </html>
 ";
     }
 
@@ -166,6 +166,12 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
                                         <a href=\"#\"><i class=\"glyphicon glyphicon-home\"></i> Home</a>
                                     </li>
                                     <li>
+                                        <a href=\"";
+        // line 83
+        echo $this->env->getExtension('routing')->getPath("lister_user");
+        echo "\" class=\"\"><i class=\"glyphicon glyphicon-user\"></i><i class=\"glyphicon glyphicon-user\"></i>Amis</a>
+                                    </li>
+                                    <li>
                                         <a href=\"#postModal\" role=\"button\" data-toggle=\"modal\"><i class=\"glyphicon glyphicon-plus\"></i> Post</a>
                                     </li>
                                     <li>
@@ -174,21 +180,37 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
                                 </ul>
                                 <ul class=\"nav navbar-nav navbar-right\">
                                     <li class=\"dropdown\">
-                                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"glyphicon glyphicon-user\"></i></a>
+                                        <a href=\"#\" class=\"dropdown-toggle no-padding\"  data-toggle=\"dropdown\">
+                ";
+        // line 95
+        if ( !(null === $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "lastFichier", array()))) {
+            echo " 
+                                            <img id=\"\" style=\"-webkit-border-radius: 369px;-webkit-border-top-left-radius: 331px;-moz-border-radius: 369px;-moz-border-radius-topleft: 331px;border-radius: 369px;border-top-left-radius: 331px;width: 41px; height: 41px;top:-46px;margin-right: 25px;\" src=\"";
+            // line 96
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("../web/uploads/" . $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "lastFichier", array()), "nom", array()))), "html", null, true);
+            echo "\" />
+                ";
+        } else {
+            // line 98
+            echo "                                            <i class=\"glyphicon glyphicon-user\"></i>
+                ";
+        }
+        // line 100
+        echo "                                        </a>
                                         <ul class=\"dropdown-menu\">
 
 
                                             <li><a href=\"";
-        // line 95
+        // line 104
         echo "\" id=\"aide\">Aide</a></li>
                                             <li><a href=\"";
-        // line 96
+        // line 105
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("edit_profil", array("id" => $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))), "html", null, true);
         echo "\" id=\"user\">";
         echo twig_escape_filter($this->env, twig_title_string_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array())), "html", null, true);
         echo "</a></li>
                                             <li><a href=\"";
-        // line 97
+        // line 106
         echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
         echo "\">Deconnexion</a></li>
                                         </ul>
@@ -204,9 +226,9 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
                                 <!-- content -->                      
                                 <div class=\"row\">
                                     ";
-        // line 110
+        // line 119
         $this->displayBlock('content', $context, $blocks);
-        // line 241
+        // line 250
         echo "                                </div><!--/row-->
 
                                 <div class=\"row\">
@@ -236,32 +258,32 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
             </div>
         </div>
         ";
-        // line 269
+        // line 278
         $context["erreurs"] = $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "error"), "method");
-        // line 270
+        // line 279
         echo "        ";
         $context["infos"] = $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "info"), "method");
-        // line 271
+        // line 280
         echo "            ";
         if ((twig_length_filter($this->env, (isset($context["erreurs"]) ? $context["erreurs"] : $this->getContext($context, "erreurs"))) > 0)) {
-            // line 272
+            // line 281
             echo "        <div class=\"modal\" id=\"erreur\">
             <div class=\"modal-dialog\">
                 <div class=\"modal-content panel panel-danger\">
-                    <div class=\"modal-header panel-heading\">
-                        <h4 class=\"modal-title\">";
-            // line 276
+                                                <div class=\"modal-header panel-heading\">
+                                                    <h4 class=\"modal-title\">";
+            // line 285
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("modal.titleerreur", array(), "messages", $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "locale", array())), "html", null, true);
             echo "</h4>
-                    </div>
-                    <div class=\"modal-body\">
+                                                </div>
+                                                <div class=\"modal-body\">
                 ";
-            // line 279
+            // line 288
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["erreurs"]) ? $context["erreurs"] : $this->getContext($context, "erreurs")));
             foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-                // line 280
-                echo "                        <p id=\"modal-message\" class=\"text-danger\">";
+                // line 289
+                echo "                                                    <p id=\"modal-message\" class=\"text-danger\">";
                 echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
                 echo "</p>
                 ";
@@ -269,39 +291,39 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 282
-            echo "                    </div>
-                    <div class=\"modal-footer\">
-                        <button type=\"button\" class=\"btn btn-default btn-danger\" data-dismiss=\"modal\">OK</button>
-                    </div>
+            // line 291
+            echo "                                                </div>
+                                                <div class=\"modal-footer\">
+                                                <button type=\"button\" class=\"btn btn-default btn-danger\" data-dismiss=\"modal\">OK</button>
+                                                </div>
+                                            </div>
                 </div>
             </div>
-        </div>
             ";
         }
-        // line 290
+        // line 299
         echo "
             ";
-        // line 291
+        // line 300
         if ((twig_length_filter($this->env, (isset($context["infos"]) ? $context["infos"] : $this->getContext($context, "infos"))) > 0)) {
-            // line 292
-            echo "        <div class=\"modal\" id=\"info\">
-            <div class=\"modal-dialog\">
-                <div class=\"modal-content panel panel-success\">
-                    <div class=\"modal-header panel-heading\">
-                        <h4 class=\"modal-title\">";
-            // line 296
+            // line 301
+            echo "            <div class=\"modal\" id=\"info\">
+                <div class=\"modal-dialog\">
+                    <div class=\"modal-content panel panel-success\">
+                                                        <div class=\"modal-header panel-heading\">
+                                                            <h4 class=\"modal-title\">";
+            // line 305
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("modal.titleinfo", array(), "messages", $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "locale", array())), "html", null, true);
             echo "</h4>
-                    </div>
-                    <div class=\"modal-body\">
+                                                        </div>
+                                                        <div class=\"modal-body\">
                 ";
-            // line 299
+            // line 308
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["infos"]) ? $context["infos"] : $this->getContext($context, "infos")));
             foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-                // line 300
-                echo "                        <p id=\"modal-message\" class=\"text-success\">";
+                // line 309
+                echo "                                                            <p id=\"modal-message\" class=\"text-success\">";
                 echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
                 echo "</p>
                 ";
@@ -309,24 +331,24 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 302
-            echo "                    </div>
-                    <div class=\"modal-footer\">
+            // line 311
+            echo "                                                        </div>
+                                                        <div class=\"modal-footer\">
                         <button type=\"button\" class=\"btn btn-default btn-success\" data-dismiss=\"modal\">OK</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
             ";
         }
-        // line 310
+        // line 319
         echo "        ";
     }
 
-    // line 110
+    // line 119
     public function block_content($context, array $blocks = array())
     {
-        // line 111
+        // line 120
         echo "                                    <!-- main col left --> 
                                     <div class=\"col-sm-5\">
 
@@ -459,71 +481,71 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
                                     ";
     }
 
-    // line 311
+    // line 320
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 312
-        echo "        <script src=\"";
+        // line 321
+        echo "            <script src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/commun/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
-        <script src=\"";
-        // line 313
+            <script src=\"";
+        // line 322
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/commun/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
-        <script src=\"";
-        // line 314
+            <script src=\"";
+        // line 323
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/commun/js/scripts.js"), "html", null, true);
         echo "\"></script>\t
-        <script type=\"text/javascript\" src=\"";
-        // line 315
+            <script type=\"text/javascript\" src=\"";
+        // line 324
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxcommon.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 316
+            <script type=\"text/javascript\" src=\"";
+        // line 325
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgrid.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 317
+            <script type=\"text/javascript\" src=\"";
+        // line 326
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgridcell.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 318
+            <script type=\"text/javascript\" src=\"";
+        // line 327
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 319
+            <script type=\"text/javascript\" src=\"";
+        // line 328
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 320
+            <script type=\"text/javascript\" src=\"";
+        // line 329
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_start.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 321
+            <script type=\"text/javascript\" src=\"";
+        // line 330
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_splt.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 322
+            <script type=\"text/javascript\" src=\"";
+        // line 331
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_pgn.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 323
+            <script type=\"text/javascript\" src=\"";
+        // line 332
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxConnector/codebase/connector.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 324
+            <script type=\"text/javascript\" src=\"";
+        // line 333
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxDataProcessor/codebase/dhtmlxdataprocessor.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 325
+            <script type=\"text/javascript\" src=\"";
+        // line 334
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_link.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 326
+            <script type=\"text/javascript\" src=\"";
+        // line 335
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxCalendar/codebase/dhtmlxcalendar.js"), "html", null, true);
         echo "\"></script>
-        <script type=\"text/javascript\" src=\"";
-        // line 327
+            <script type=\"text/javascript\" src=\"";
+        // line 336
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_dhxcalendar.js"), "html", null, true);
         echo "\"></script>
         ";
@@ -541,6 +563,6 @@ class __TwigTemplate_11dfbeafbf4f1976ddde7f7704cbc2aed43bb27d51c178e181975af1eab
 
     public function getDebugInfo()
     {
-        return array (  527 => 327,  523 => 326,  519 => 325,  515 => 324,  511 => 323,  507 => 322,  503 => 321,  499 => 320,  495 => 319,  491 => 318,  487 => 317,  483 => 316,  479 => 315,  475 => 314,  471 => 313,  466 => 312,  463 => 311,  330 => 111,  327 => 110,  323 => 310,  313 => 302,  304 => 300,  300 => 299,  294 => 296,  288 => 292,  286 => 291,  283 => 290,  273 => 282,  264 => 280,  260 => 279,  254 => 276,  248 => 272,  245 => 271,  242 => 270,  240 => 269,  210 => 241,  208 => 110,  192 => 97,  186 => 96,  183 => 95,  155 => 72,  150 => 70,  98 => 20,  95 => 19,  88 => 13,  84 => 12,  80 => 11,  76 => 10,  72 => 9,  68 => 8,  63 => 7,  60 => 6,  54 => 5,  48 => 329,  45 => 311,  43 => 19,  36 => 16,  34 => 6,  30 => 5,  24 => 1,);
+        return array (  549 => 336,  545 => 335,  541 => 334,  537 => 333,  533 => 332,  529 => 331,  525 => 330,  521 => 329,  517 => 328,  513 => 327,  509 => 326,  505 => 325,  501 => 324,  497 => 323,  493 => 322,  488 => 321,  485 => 320,  352 => 120,  349 => 119,  345 => 319,  335 => 311,  326 => 309,  322 => 308,  316 => 305,  310 => 301,  308 => 300,  305 => 299,  295 => 291,  286 => 289,  282 => 288,  276 => 285,  270 => 281,  267 => 280,  264 => 279,  262 => 278,  232 => 250,  230 => 119,  214 => 106,  208 => 105,  205 => 104,  199 => 100,  195 => 98,  190 => 96,  186 => 95,  171 => 83,  155 => 72,  150 => 70,  98 => 20,  95 => 19,  88 => 13,  84 => 12,  80 => 11,  76 => 10,  72 => 9,  68 => 8,  63 => 7,  60 => 6,  54 => 5,  48 => 338,  45 => 320,  43 => 19,  36 => 16,  34 => 6,  30 => 5,  24 => 1,);
     }
 }
