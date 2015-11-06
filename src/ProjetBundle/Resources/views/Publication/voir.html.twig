@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+{{parent()}}
+<!-- main col left --> 
+<div class="col-sm-12">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p class="lead"><a href="{{ path('edit_profil',{'id':publication.user.id}) }}" id="user">{{ publication.user.username|title }}</a> :{{publication.text}}</p>
+            {%if publication.fichier|length>0%}
+                    {%for f in publication.fichier%}
+            <div class="col-sm-2">
+                <img id="" width="200" height="200" style="" src="{{ asset('../web/uploads/'~f.nom)}}" />
+            </div> {%endfor%}
+
+                {%endif%}
+            <div class="col-sm-12"
+                 <p>{{publication.jaime|length}} Like, {{publication.commentaires|length}} Comments</p>
+            </div>
+            <div class=" col-sm-12"> 
+                <form class="form">
+                    <div class="input-group text-center col-sm-6">
+                        <input type="text" class="form-control input-sm" placeholder="comment">
+                        <span class="input-group-btn"><button class="btn btn-sm btn-primary" type="button">OK</button></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

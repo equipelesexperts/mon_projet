@@ -136,6 +136,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'ProjetBundle\\Controller\\DefaultController::indexAction',  '_route' => 'projet_homepage',);
         }
 
+        if (0 === strpos($pathinfo, '/publication')) {
+            // ajouter_publication
+            if ($pathinfo === '/publication/ajouter') {
+                return array (  '_controller' => 'ProjetBundle\\Controller\\PublicationController::ajouterAction',  '_route' => 'ajouter_publication',);
+            }
+
+            // voir_publication
+            if (preg_match('#^/publication/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'voir_publication')), array (  '_controller' => 'ProjetBundle\\Controller\\PublicationController::voirAction',));
+            }
+
+        }
+
         // homepage
         if ($pathinfo === '/app/example') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);

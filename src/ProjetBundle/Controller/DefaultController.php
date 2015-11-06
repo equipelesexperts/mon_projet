@@ -8,6 +8,9 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ProjetBundle:Default:index.html.twig');
+        $user=  $this->get('security.context')->getToken()->getUser();
+        $em=  $this->getDoctrine()->getEntityManager();
+        $publication = $em->getRepository("ProjetBundle:Publication")->findBy(array('user'=>$user->getId()));
+        return $this->render('ProjetBundle:Default:index.html.twig',array('publication'=>$publication));
     }
 }

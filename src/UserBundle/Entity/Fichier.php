@@ -36,6 +36,12 @@ class Fichier
      * @ORM\JoinColumn(nullable=true)
     */
     private $user;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Publication", inversedBy="fichier")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $publication;
     /**
      * Get id
      *
@@ -89,5 +95,28 @@ class Fichier
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set publication
+     *
+     * @param \ProjetBundle\Entity\Publication $publication
+     * @return Fichier
+     */
+    public function setPublication(\ProjetBundle\Entity\Publication $publication = null)
+    {
+        $this->publication = $publication;
+
+        return $this;
+    }
+
+    /**
+     * Get publication
+     *
+     * @return \ProjetBundle\Entity\Publication 
+     */
+    public function getPublication()
+    {
+        return $this->publication;
     }
 }

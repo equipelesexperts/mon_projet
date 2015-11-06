@@ -64,7 +64,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a href="/" class="navbar-brand logo">b</a>
+                                <a href="{{path('projet_homepage')}}" class="navbar-brand logo">b</a>
                             </div>
                             <nav class="collapse navbar-collapse" role="navigation">
                                 <form class="navbar-form navbar-left" action="{{path('recherche_user')}}" method="POST">
@@ -77,7 +77,7 @@
                                 </form>
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a>
+                                        <a href="{{path('projet_homepage')}}"><i class="glyphicon glyphicon-home"></i> Home</a>
                                     </li>
                                     <li>
                                         <a href="{{path('lister_user')}}" class=""><i class="glyphicon glyphicon-user"></i><i class="glyphicon glyphicon-user"></i>Amis</a>
@@ -118,134 +118,7 @@
                                 <div class="row">
                                     {% block content %}
                                     <!-- main col left --> 
-                                    <div class="col-sm-5">
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-thumbnail"><img src="/assets/example/bg_5.jpg" class="img-responsive"></div>
-                                            <div class="panel-body">
-                                                <p class="lead">Urbanization</p>
-                                                <p>45 Followers, 13 Posts</p>
-
-                                                <p>
-                                                    <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
-                                                </p>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootstrap Examples</h4></div>
-                                            <div class="panel-body">
-                                                <div class="list-group">
-                                                    <a href="http://bootply.com/tagged/modal" class="list-group-item">Modal / Dialog</a>
-                                                    <a href="http://bootply.com/tagged/datetime" class="list-group-item">Datetime Examples</a>
-                                                    <a href="http://bootply.com/tagged/datatable" class="list-group-item">Data Grids</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="well"> 
-                                            <form class="form-horizontal" role="form">
-                                                <h4>What's New</h4>
-                                                <div class="form-group" style="padding:14px;">
-                                                    <textarea class="form-control" placeholder="Update your status"></textarea>
-                                                </div>
-                                                <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-                                            </form>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>More Templates</h4></div>
-                                            <div class="panel-body">
-                                                <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Free @Bootply</a>
-                                                <div class="clearfix"></div>
-                                                There a load of new free Bootstrap 3 ready templates at Bootply. All of these templates are free and don't require extensive customization to the Bootstrap baseline.
-                                                <hr>
-                                                <ul class="list-unstyled"><li><a href="http://www.bootply.com/templates">Dashboard</a></li><li><a href="http://www.bootply.com/templates">Darkside</a></li><li><a href="http://www.bootply.com/templates">Greenfield</a></li></ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading"><h4>What Is Bootstrap?</h4></div>
-                                            <div class="panel-body">
-                                                Bootstrap is front end frameworkto build custom web applications that are fast, responsive &amp; intuitive. It consist of CSS and HTML for typography, forms, buttons, tables, grids, and navigation along with custom-built jQuery plug-ins and support for responsive layouts. With dozens of reusable components for navigation, pagination, labels, alerts etc..                          </div>
-                                        </div>
-
-
-
-                                    </div>
-
-                                    <!-- main col right -->
-                                    <div class="col-sm-7">
-
-                                        <div class="well"> 
-                                            <form class="form">
-                                                <h4>Sign-up</h4>
-                                                <div class="input-group text-center">
-                                                    <input type="text" class="form-control input-lg" placeholder="Enter your email address">
-                                                    <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootply Editor &amp; Code Library</h4></div>
-                                            <div class="panel-body">
-                                                <p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>
-                                                <div class="clearfix"></div>
-                                                <hr>
-                                                Design, build, test, and prototype using Bootstrap in real-time from your Web browser. Bootply combines the power of hand-coded HTML, CSS and JavaScript with the benefits of responsive design using Bootstrap. Find and showcase Bootstrap-ready snippets in the 100% free Bootply.com code repository.
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Stackoverflow</h4></div>
-                                            <div class="panel-body">
-                                                <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Keyword: Bootstrap</a>
-                                                <div class="clearfix"></div>
-                                                <hr>
-
-                                                <p>If you're looking for help with Bootstrap code, the <code>twitter-bootstrap</code> tag at <a href="http://stackoverflow.com/questions/tagged/twitter-bootstrap">Stackoverflow</a> is a good place to find answers.</p>
-
-                                                <hr>
-                                                <form>
-                                                    <div class="input-group">
-                                                        <div class="input-group-btn">
-                                                            <button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
-                                                        </div>
-                                                        <input type="text" class="form-control" placeholder="Add a comment..">
-                                                    </div>
-                                                </form>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Portlet Heading</h4></div>
-                                            <div class="panel-body">
-                                                <ul class="list-group">
-                                                    <li class="list-group-item">Modals</li>
-                                                    <li class="list-group-item">Sliders / Carousel</li>
-                                                    <li class="list-group-item">Thumbnails</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-thumbnail"><img src="/assets/example/bg_4.jpg" class="img-responsive"></div>
-                                            <div class="panel-body">
-                                                <p class="lead">Social Good</p>
-                                                <p>1,200 Followers, 83 Posts</p>
-
-                                                <p>
-                                                    <img src="https://lh6.googleusercontent.com/-5cTTMHjjnzs/AAAAAAAAAAI/AAAAAAAAAFk/vgza68M4p2s/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                                                    <img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                                                    <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                    
                                     {%endblock%}
                                 </div><!--/row-->
 
@@ -281,59 +154,176 @@
         <div class="modal" id="erreur">
             <div class="modal-dialog">
                 <div class="modal-content panel panel-danger">
-                                                <div class="modal-header panel-heading">
-                                                    <h4 class="modal-title">{{ 'modal.titleerreur'|trans({}, "messages", app.request.locale) }}</h4>
-                                                </div>
-                                                <div class="modal-body">
+                    <div class="modal-header panel-heading">
+                        <h4 class="modal-title">{{ 'modal.titleerreur'|trans({}, "messages", app.request.locale) }}</h4>
+                    </div>
+                    <div class="modal-body">
                 {% for flashMessage in erreurs %}
-                                                    <p id="modal-message" class="text-danger">{{ flashMessage }}</p>
+                        <p id="modal-message" class="text-danger">{{ flashMessage }}</p>
                 {% endfor %}
-                                                </div>
-                                                <div class="modal-footer">
-                                                <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">OK</button>
-                                                </div>
-                                            </div>
-                </div>
-            </div>
-            {% endif %}
-
-            {% if infos|length > 0 %}
-            <div class="modal" id="info">
-                <div class="modal-dialog">
-                    <div class="modal-content panel panel-success">
-                                                        <div class="modal-header panel-heading">
-                                                            <h4 class="modal-title">{{ 'modal.titleinfo'|trans({}, "messages", app.request.locale) }}</h4>
-                                                        </div>
-                                                        <div class="modal-body">
-                {% for flashMessage in infos %}
-                                                            <p id="modal-message" class="text-success">{{ flashMessage }}</p>
-                {% endfor %}
-                                                        </div>
-                                                        <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-success" data-dismiss="modal">OK</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">OK</button>
                     </div>
                 </div>
             </div>
+        </div>
             {% endif %}
+
+            {% if infos|length > 0 %}
+        <div class="modal" id="info">
+            <div class="modal-dialog">
+                <div class="modal-content panel panel-success">
+                    <div class="modal-header panel-heading">
+                        <h4 class="modal-title">{{ 'modal.titleinfo'|trans({}, "messages", app.request.locale) }}</h4>
+                    </div>
+                    <div class="modal-body">
+                {% for flashMessage in infos %}
+                        <p id="modal-message" class="text-success">{{ flashMessage }}</p>
+                {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-success" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {% endif %}
+        <div aria-hidden="true" role="dialog" tabindex="-1" class="modal fade" id="postModal">
+            <form class="form center-block" action="{{path('ajouter_publication')}}" method="post" enctype="multipart/form-data">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                            Update Status
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group" id="placeimgpost">
+                                <textarea placeholder="........" autofocus="" name="text-area-post" class="form-control input-lg"></textarea>
+                                <input type="file" class="hide" id="filePost" name="filePost" onchange="afficherFilePost(event, $(this));">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div>
+                                <button aria-hidden="true" type="submit" class="btn btn-primary btn-sm">Post</button>
+                                <ul class="pull-left list-inline"><li><a href="javascript:void(0);" onclick="$('input#filePost').click();"><i class="glyphicon glyphicon-upload"></i></a></li></ul>
+                            </div>	
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
         {% endblock %}
         {% block javascripts %}
-            <script src="{{ asset('bundles/commun/js/jquery.min.js') }}"></script>
-            <script src="{{ asset('bundles/commun/js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('bundles/commun/js/scripts.js') }}"></script>	
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxcommon.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgrid.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgridcell.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_start.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_splt.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_pgn.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxConnector/codebase/connector.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxDataProcessor/codebase/dhtmlxdataprocessor.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_link.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxCalendar/codebase/dhtmlxcalendar.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_dhxcalendar.js') }}"></script>
-        {% endblock %}
-        </body>
-    </html>
+        <script src="{{ asset('bundles/commun/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/commun/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/commun/js/scripts.js') }}"></script>	
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxcommon.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgrid.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/dhtmlxgridcell.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_start.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_splt.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/ext/dhtmlxgrid_pgn.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxConnector/codebase/connector.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxDataProcessor/codebase/dhtmlxdataprocessor.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_link.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxCalendar/codebase/dhtmlxcalendar.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/dhtmlx/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_dhxcalendar.js') }}"></script>
+        <script type="text/javascript">
+                                function afficherFilePost(event, obj) {
+                                    $("div#placeimgpost").find('img#image').remove();
+                                    var tmppath = URL.createObjectURL(event.target.files[0]);
+                                    $('div#placeimgpost').append('<img height="50" width="50" id="image"/>');
+                                    $("div#placeimgpost").find('img#image').fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+                                }
+        </script>
+        <script type="text/javascript">
+            var cities = {
+                type: 'FeatureCollection',
+                features: [{
+                        type: 'Feature',
+                        geometry: {type: 'Point', coordinates: [-87.650, 41.850]},
+                        properties: {name: 'Chicago'}
+                    }, {
+                        type: 'Feature',
+                        geometry: {type: 'Point', coordinates: [-149.900, 61.218]},
+                        properties: {name: 'Anchorage'}
+                    }, {
+                        type: 'Feature',
+                        geometry: {type: 'Point', coordinates: [-99.127, 19.427]},
+                        properties: {name: 'Mexico City'}
+                    }, {
+                        type: 'Feature',
+                        geometry: {type: 'Point', coordinates: [-0.126, 51.500]},
+                        properties: {name: 'London'}
+                    }, {
+                        type: 'Feature',
+                        geometry: {type: 'Point', coordinates: [28.045, -26.201]},
+                        properties: {name: 'Johannesburg'}
+                    }, {
+                        type: 'Feature',
+                        geometry: {type: 'Point', coordinates: [15.322, -4.325]},
+                        properties: {name: 'Kinshasa'}
+                    }, {
+                        type: 'Feature',
+                        geometry: {type: 'Point', coordinates: [151.207, -33.867]},
+                        properties: {name: 'Sydney'}
+                    }, {
+                        type: 'Feature',
+                        geometry: {type: 'Point', coordinates: [0, 0]},
+                        properties: {name: '0°N 0°E'}
+                    }]
+            };
+
+        </script>
+        <script type="text/javascript">
+            function initMap() {
+                var image = '<div style="border-radius:50%;overflow:hidden;"><img src="{{ asset('bundles/commun/img/defaultphoto.png') }}" width="28px" height="28px"></div>';
+                {%if app.user.lastFichier is not null%}
+                image = '<img id="" style=" - webkit - border - radius: 369px; - webkit - border - top - left - radius: 331px; - moz - border - radius: 369px; - moz - border - radius - topleft: 331px; border - radius: 369px; border - top - left - radius: 331px; width: 41px; height: 41px; top: - 46px; margin - right: 25px; " src="{{ asset('../web/uploads/'~app.user.lastFichier.nom)}}" />';
+                {%endif%}
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 6
+                });
+                var infoWindow = new google.maps.InfoWindow({map: map});
+                map.data.addGeoJson(cities);
+                // Try HTML5 geolocation.
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('<div style="border-radius:50%;overflow:hidden;">' + image + '</div>');
+                        map.setCenter(pos);
+                    }, function() {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+            }
+
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+            }
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCX3r5YP0bOcrUlcWWVYu3dUh6S0oakEVY&signed_in=true&callback=initMap"
+                async defer>
+        </script>    
+{% endblock %}
+    </body>
+</html>
