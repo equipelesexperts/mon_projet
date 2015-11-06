@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="ProjetBundle\Entity\PublicationRepository")
  */
-class Publication
-{
+class Publication {
+
     /**
      * @var integer
      *
@@ -42,41 +42,40 @@ class Publication
      */
     private $datefin;
 
-
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @ORM\ManyToOne(targetEntity="User", inversedBy="publications")
      * @ORM\JoinColumn(nullable=true)
      */
     protected $user;
-    
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @ORM\OneToMany(targetEntity="UserBundle\Entity\Fichier", mappedBy="publication")
      * @ORM\JoinColumn(nullable=true)
      */
     protected $fichier;
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="publication")
      * @ORM\JoinColumn(nullable=true)
      */
     protected $commentaires;
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @ORM\OneToMany(targetEntity="Jaime", mappedBy="publication")
      * @ORM\JoinColumn(nullable=true)
      */
     protected $jaime;
-    
-    
+
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -86,8 +85,7 @@ class Publication
      * @param string $text
      * @return Publication
      */
-    public function setText($text)
-    {
+    public function setText($text) {
         $this->text = $text;
 
         return $this;
@@ -98,8 +96,7 @@ class Publication
      *
      * @return string 
      */
-    public function getText()
-    {
+    public function getText() {
         return $this->text;
     }
 
@@ -109,8 +106,7 @@ class Publication
      * @param \DateTime $datepublication
      * @return Publication
      */
-    public function setDatepublication($datepublication)
-    {
+    public function setDatepublication($datepublication) {
         $this->datepublication = $datepublication;
 
         return $this;
@@ -121,8 +117,7 @@ class Publication
      *
      * @return \DateTime 
      */
-    public function getDatepublication()
-    {
+    public function getDatepublication() {
         return $this->datepublication;
     }
 
@@ -132,8 +127,7 @@ class Publication
      * @param \DateTime $datefin
      * @return Publication
      */
-    public function setDatefin($datefin)
-    {
+    public function setDatefin($datefin) {
         $this->datefin = $datefin;
 
         return $this;
@@ -144,19 +138,16 @@ class Publication
      *
      * @return \DateTime 
      */
-    public function getDatefin()
-    {
+    public function getDatefin() {
         return $this->datefin;
     }
+
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->user = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-    
 
     /**
      * Set user
@@ -164,8 +155,7 @@ class Publication
      * @param \ProjetBundle\Entity\User $user
      * @return Publication
      */
-    public function setUser(\ProjetBundle\Entity\User $user = null)
-    {
+    public function setUser(\ProjetBundle\Entity\User $user = null) {
         $this->user = $user;
 
         return $this;
@@ -176,8 +166,7 @@ class Publication
      *
      * @return \ProjetBundle\Entity\User 
      */
-    public function getUser()
-    {
+    public function getUser() {
         return $this->user;
     }
 
@@ -187,8 +176,7 @@ class Publication
      * @param \UserBundle\Entity\Fichier $fichier
      * @return Publication
      */
-    public function addFichier(\UserBundle\Entity\Fichier $fichier)
-    {
+    public function addFichier(\UserBundle\Entity\Fichier $fichier) {
         $this->fichier[] = $fichier;
 
         return $this;
@@ -199,8 +187,7 @@ class Publication
      *
      * @param \UserBundle\Entity\Fichier $fichier
      */
-    public function removeFichier(\UserBundle\Entity\Fichier $fichier)
-    {
+    public function removeFichier(\UserBundle\Entity\Fichier $fichier) {
         $this->fichier->removeElement($fichier);
     }
 
@@ -209,8 +196,7 @@ class Publication
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getFichier()
-    {
+    public function getFichier() {
         return $this->fichier;
     }
 
@@ -220,8 +206,7 @@ class Publication
      * @param \ProjetBundle\Entity\Commentaire $commentaires
      * @return Publication
      */
-    public function addCommentaire(\ProjetBundle\Entity\Commentaire $commentaires)
-    {
+    public function addCommentaire(\ProjetBundle\Entity\Commentaire $commentaires) {
         $this->commentaires[] = $commentaires;
 
         return $this;
@@ -232,8 +217,7 @@ class Publication
      *
      * @param \ProjetBundle\Entity\Commentaire $commentaires
      */
-    public function removeCommentaire(\ProjetBundle\Entity\Commentaire $commentaires)
-    {
+    public function removeCommentaire(\ProjetBundle\Entity\Commentaire $commentaires) {
         $this->commentaires->removeElement($commentaires);
     }
 
@@ -242,8 +226,7 @@ class Publication
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCommentaires()
-    {
+    public function getCommentaires() {
         return $this->commentaires;
     }
 
@@ -253,8 +236,7 @@ class Publication
      * @param \ProjetBundle\Entity\Jaime $jaime
      * @return Publication
      */
-    public function addJaime(\ProjetBundle\Entity\Jaime $jaime)
-    {
+    public function addJaime(\ProjetBundle\Entity\Jaime $jaime) {
         $this->jaime[] = $jaime;
 
         return $this;
@@ -265,8 +247,7 @@ class Publication
      *
      * @param \ProjetBundle\Entity\Jaime $jaime
      */
-    public function removeJaime(\ProjetBundle\Entity\Jaime $jaime)
-    {
+    public function removeJaime(\ProjetBundle\Entity\Jaime $jaime) {
         $this->jaime->removeElement($jaime);
     }
 
@@ -275,8 +256,29 @@ class Publication
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getJaime()
-    {
+    public function getJaime() {
         return $this->jaime;
     }
+
+    public function isLikeUser(\ProjetBundle\Entity\User $user) {
+        global $kernel;
+        $test=false;
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+        $em = $kernel->getContainer()->get('doctrine.orm.entity_manager');
+        $lastlike = $em->getRepository('ProjetBundle:Jaime')->findBy(array('user' => $user, 'publication' => $this->getId()));
+        if (count($lastlike)) {
+            foreach ($lastlike as $like) {
+                if ($like->getLiked() == true) {
+                    $test=true;
+                } else {
+                    $test=false;
+                }
+            }
+        } else {
+            $test=true;
+        }
+    }
+
 }

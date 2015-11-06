@@ -7,3 +7,6 @@ ajouter_publication:
 voir_publication:
     path:     /publication/{id}
     defaults: { _controller: ProjetBundle:Publication:voir }
+set_like:
+    path:     /publication/like/{id}/{userId}
+    defaults: { _controller: ProjetBundle:Publication:like }

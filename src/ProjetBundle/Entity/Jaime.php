@@ -38,7 +38,7 @@ class Jaime {
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datefin", type="datetime")
+     * @ORM\Column(name="datefin", type="datetime",nullable=true)
      */
     private $datefin;
 

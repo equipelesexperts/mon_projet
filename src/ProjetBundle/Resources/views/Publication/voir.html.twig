@@ -7,7 +7,7 @@
 
     <div class="panel panel-default">
         <div class="panel-body">
-            <p class="lead"><a href="{{ path('edit_profil',{'id':publication.user.id}) }}" id="user">{{ publication.user.username|title }}</a> :{{publication.text}}</p>
+            <h5 class="lead"><a class="user" href="{{ path('edit_profil',{'id':publication.user.id}) }}" id="user">{{ publication.user.username|title }}</a> :{{publication.text}}</h5>
             {%if publication.fichier|length>0%}
                     {%for f in publication.fichier%}
             <div class="col-sm-2">
@@ -16,18 +16,55 @@
 
                 {%endif%}
             <div class="col-sm-12"
-                 <p>{{publication.jaime|length}} Like, {{publication.commentaires|length}} Comments</p>
+                 <p><a id="like" href="javascript:void(0);"><i class="glyphicon glyphicon-thumbs-up" style="{%if publication.isLikeUser(app.user)==true%}color:#3B5999;{%else%}color:gray;{%endif%}"></i></a>{{publication.jaime|length}} Like, {{publication.commentaires|length}} Comments</p>
             </div>
             <div class=" col-sm-12"> 
-                <form class="form">
-                    <div class="input-group text-center col-sm-6">
-                        <input type="text" class="form-control input-sm" placeholder="comment">
-                        <span class="input-group-btn"><button class="btn btn-sm btn-primary" type="button">OK</button></span>
-                    </div>
-                </form>
+                {%if publication.commentaires|length>0%}
+                {%for com in publication.commentaires%}
+                <div class="col-sm-12" style="word-break: break-all;border-bottom: 1px solid #E9EAED;"><a class="user" href="{{ path('edit_profil',{'id':com.user.id}) }}" id="user">{{ com.user.username|title }}</a> :<h6>{{com.text}}.</h6></div>
+                {%endfor%}
+
+                {%else%}
+                <p>Pas de commentaire</p>
+                {%endif%}
+                <div class=" col-sm-12" style="margin-top:10px;"> 
+                    <form class="form" method="post">
+                        <div class="input-group text-center col-sm-6">
+                            <input type="text" required="required" class="form-control input-sm" placeholder="comment" name="comment">
+                            <span class="input-group-btn"><button class="btn btn-sm btn-primary" type="submit">OK</button></span>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+    <style>
+        a.user{
+            color: #3B5999;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    <script>
+        $('a#like').click(function() {
+            var dataserialise = $("form.form").serialize();
+            var url = "{{path('set_like',{'id':publication.id,'userId':app.user.id})}}";
+            $.ajax({
+                url: url,
+                data: dataserialise,
+                type: 'POST',
+                success: function(resultat) {
+                    if (parseInt(resultat) == 0){
+                        console.log("0");
+                         $('a#like').find('i').css('color', 'gray');
+                    }
+                    else{
+                         $('a#like').find('i').css('color', '#3B5999');
+                        console.log("1");
+                    }
+                }
+            });
+        });
+    </script>
 {% endblock %}

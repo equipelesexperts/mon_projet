@@ -40,9 +40,48 @@ class PublicationController extends Controller {
     public function voirAction($id) {
         $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getEntityManager();
-        $publication=$em->getRepository('ProjetBundle:Publication')->find($id);
-        
+        $publication = $em->getRepository('ProjetBundle:Publication')->find($id);
+        $rq = $this->getRequest();
+        if ($rq->getMethod() == "POST") {
+            $date = new \DateTime();
+            $commentaire = new \ProjetBundle\Entity\Commentaire();
+            $commentaire->setDate($date);
+            $commentaire->setPublication($publication);
+            $commentaire->setUser($user);
+            $commentaire->setText($rq->request->get('comment'));
+            $em->persist($commentaire);
+            $em->flush();
+        }
         return array('publication' => $publication);
+    }
+
+    public function likeAction($id, $userId) {
+        $now = new \DateTime();
+        $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getEntityManager();
+        $publication = $em->getRepository('ProjetBundle:Publication')->find($id);
+        $lastlike = $em->getRepository('ProjetBundle:Jaime')->findBy(array('user' => $user, 'publication' => $publication));
+        //var_dump($lastlike);die;
+        if (count($lastlike)) {
+            foreach ($lastlike as $like) {
+                if ($like->getLiked() == true) {
+                    $like->setLiked(false);
+                } else {
+                    $like->setLiked(true);
+                }
+                $em->persist($like);
+                $em->flush();
+            }
+        } else {
+            $like = new \ProjetBundle\Entity\Jaime();
+            $like->setDate($now);
+            $like->setPublication($publication);
+            $like->setUser($user);
+            $like->setLiked(true);
+            $em->persist($like);
+            $em->flush();
+        }
+        return new \Symfony\Component\HttpFoundation\Response(intval($like->getLiked()));
     }
 
 }
