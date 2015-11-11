@@ -10,3 +10,14 @@ voir_publication:
 set_like:
     path:     /publication/like/{id}/{userId}
     defaults: { _controller: ProjetBundle:Publication:like }
+voir_photos:
+    path:     /voir_photos
+    defaults: { _controller: ProjetBundle:Publication:voir_photos }
+
+ajout_amis:
+    path:     /ajout-amis
+    defaults: { _controller: ProjetBundle:Amis:ajout }
+
+supprimer_amis:
+    path:     /supprimer-amis
+    defaults: { _controller: ProjetBundle:Amis:supprimer }

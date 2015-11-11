@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Mirehaky{% endblock %}</title>
         {% block stylesheets %}
         <link href="{{ asset('bundles/boostrap/css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('bundles/commun/css/styles.css') }}" rel="stylesheet">
@@ -30,14 +30,16 @@
                         </ul>
 
                         <ul class="nav hidden-xs" id="lg-menu">
-                            <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i></a></li>
-                            <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
+                            <li class="active"><a href="#featured"><i class="glyphicon glyphicon-home"></i>Home</a></li>
+                            <li><a href="#stories"><i class="glyphicon glyphicon-envelope"></i>Chat</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-calendar"></i>Events</a></li>
+                            <li><a href="{{path('voir_photos')}}"><i class="glyphicon glyphicon-picture"></i>Photos</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-user"></i><i class="glyphicon glyphicon-user"></i>Find friends</a></li>
+                            <li><a href="javascript:void(0); location.reload();"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
                         </ul>
                         <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                             <li>
-                                <a href="http://www.bootply.com"><h3>Bootstrap</h3> <i class="glyphicon glyphicon-heart-empty"></i> Bootply</a>
+                                <a href=""><h3>Mirehaky Soa</h3> </a>
                             </li>
                         </ul>
 
@@ -80,7 +82,7 @@
                                         <a href="{{path('projet_homepage')}}"><i class="glyphicon glyphicon-home"></i> Home</a>
                                     </li>
                                     <li>
-                                        <a href="{{path('lister_user')}}" class=""><i class="glyphicon glyphicon-user"></i><i class="glyphicon glyphicon-user"></i>Amis</a>
+                                        <a href="{{path('lister_user')}}" class=""><i class="glyphicon glyphicon-user"></i><i class="glyphicon glyphicon-user"></i>Friends</a>
                                     </li>
                                     <li>
                                         <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
@@ -91,11 +93,12 @@
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle no-padding"  data-toggle="dropdown">
+                                        <a id="imgProfil" href="#" class="dropdown-toggle no-padding" data-toggle="dropdown">
                 {%if app.user.lastFichier is not null%} 
                                             <img id="" style="-webkit-border-radius: 369px;-webkit-border-top-left-radius: 331px;-moz-border-radius: 369px;-moz-border-radius-topleft: 331px;border-radius: 369px;border-top-left-radius: 331px;width: 41px; height: 41px;top:-46px;margin-right: 25px;" src="{{ asset('../web/uploads/'~app.user.lastFichier.nom)}}" />
                 {%else%}
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <div style="background:#2a4888;padding-top:8px;padding-left:12px;-webkit-border-radius: 369px;-webkit-border-top-left-radius: 331px;-moz-border-radius: 369px;-moz-border-radius-topleft: 331px;border-radius: 369px;border-top-left-radius: 331px;width: 41px; height: 41px;top:-46px;margin-right: 25px;"><i class="glyphicon glyphicon-user"></i>
+                                            </div>
                 {%endif%}
                                         </a>
                                         <ul class="dropdown-menu">

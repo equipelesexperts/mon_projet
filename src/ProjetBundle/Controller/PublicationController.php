@@ -26,7 +26,7 @@ class PublicationController extends Controller {
             $fichierImport->move($destination, $fichierImport->getClientOriginalName());
             $file = new \UserBundle\Entity\Fichier();
             $file->setNom($fichierImport->getClientOriginalName());
-            //$file->setUser(null);
+            $file->setCreateur($user);
             $file->setPublication($publication);
             $em->persist($file);
             $em->flush();
@@ -82,6 +82,16 @@ class PublicationController extends Controller {
             $em->flush();
         }
         return new \Symfony\Component\HttpFoundation\Response(intval($like->getLiked()));
+    }
+    
+     /**
+     * @Template()
+     */
+    public function voir_photosAction() {
+        $user=  $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getEntityManager();
+        $fichiers = $em->getRepository('UserBundle:Fichier')->findBy(array('createur'=>$user));
+        return array('fichiers'=>$fichiers);
     }
 
 }

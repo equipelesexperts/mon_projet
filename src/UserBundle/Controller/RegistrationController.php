@@ -42,6 +42,7 @@ class RegistrationController extends Controller {
                 $file = new \UserBundle\Entity\Fichier();
                 $file->setNom($fichierImport->getClientOriginalName());
                 $file->setUser($user);
+                $file->setCreateur($user);
                 $em->persist($file);
             }
             $em->flush();

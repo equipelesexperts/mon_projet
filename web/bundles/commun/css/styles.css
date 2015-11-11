@@ -288,3 +288,9 @@ small.text-muted {
 .no-padding{
     padding: 0px !important;
 }
+.hide{
+    display :none;
+}
+a#imgProfil:hover{
+    background: transparent !important;
+}

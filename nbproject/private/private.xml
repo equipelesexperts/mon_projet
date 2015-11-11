@@ -3,18 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Resources/views/Default/index.html.twig</file>
-            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Resources/config/routing.yml</file>
-            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Controller/RegistrationController.php</file>
+            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Resources/views/Publication/voir.html.twig</file>
+            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Resources/views/Publication/voir_photos.html.twig</file>
+            <file>file:/D:/wamp/www/my_projet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Security/login.html.twig</file>
             <file>file:/D:/wamp/www/my_projet/app/Resources/views/base.html.twig</file>
-            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Resources/views/Registration/liste.xml.twig</file>
             <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Entity/User.php</file>
-            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Entity/Publication.php</file>
-            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Controller/DefaultController.php</file>
+            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Resources/views/Registration/liste.xml.twig</file>
             <file>file:/D:/wamp/www/my_projet/web/bundles/commun/css/styles.css</file>
             <file>file:/D:/wamp/www/my_projet/src/UserBundle/Entity/Fichier.php</file>
-            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Resources/views/Registration/editer.html.twig</file>
             <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Controller/PublicationController.php</file>
+            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Resources/config/routing.yml</file>
+            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Resources/views/Registration/lister.html.twig</file>
+            <file>file:/D:/wamp/www/my_projet/src/UserBundle/Controller/RegistrationController.php</file>
+            <file>file:/D:/wamp/www/my_projet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Registration/register_content.html.twig</file>
+            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Controller/AmisController.php</file>
+            <file>file:/D:/wamp/www/my_projet/src/ProjetBundle/Controller/DefaultController.php</file>
         </group>
     </open-files>
 </project-private>

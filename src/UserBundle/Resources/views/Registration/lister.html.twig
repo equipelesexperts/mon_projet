@@ -3,7 +3,8 @@
 {% block content %}
 <div class="panel panel-default">
     <div class="panel-heading"><a href="javascript:void()" class="pull-right"></a> <h4>Liste des utilisateurs </h4></div>
-    <div class="panel-body">
+    <div class="panels="list-group">
+-body">
         <div class="list-group">
 
             <div id="gridbox" style="width:100%; overflow:hidden; position: relative;"></div>
@@ -27,18 +28,18 @@
     };
 
 
-    grid.setHeader("<div style='width:100%; text-align:left;'>Nom</div>,<div style='width:100%; text-align:left;'>Email</div>,Enregistrer,Supprimer");
-    grid.setInitWidths("*,*,100,100");
+    grid.setHeader("<div style='width:100%; text-align:left;'>Nom</div>,<div style='width:100%; text-align:left;'>Email</div>, ");
+    grid.setInitWidths("*,*,100");
     grid.enableSmartRendering(true);
-    grid.setColAlign("left,left,center,center");
+    grid.setColAlign("left,left,center");
     grid.setColTypes("ed,ro,ro,ro");
-    grid.setColSorting("str,str,na,na");
+    grid.setColSorting("str,str,na");
     grid.enableMultiline(true);
     grid.setCustomSorting(custom_sort, 0);
     grid.setSkin("dhx_terrace");
     grid.enableAutoHeigth(true);
     grid.objBox.style.overflowX = "hidden";
-    grid.enableEditEvents(true,false, false, true);
+    grid.enableEditEvents(true,false, false);
     grid.init();
     {%if rech is defined and rech!=""%}
     grid.load("{{ path('lister_user_xml',{'rech':rech}) }}", function() {        
@@ -47,5 +48,29 @@
     grid.load("{{ path('lister_user_xml') }}", function() {        
     });
     {%endif%}
+     function ajouteramis(obj,id){
+         var urlajoutamis= "{{ path('ajout_amis')}}";
+         $.ajax({
+                url: urlajoutamis,
+                data: 'id='+id,
+                type: 'POST',
+                success: function(resultat) {
+                    obj.addClass('hide');
+                    $('a.retireramis'+id).removeClass('hide');
+                }
+            });
+     }
+     function retireramis(obj,id){
+         var urlretireramis= "{{ path('supprimer_amis')}}";
+         $.ajax({
+                url: urlretireramis,
+                data: 'id='+id,
+                type: 'POST',
+                success: function(resultat) {
+                    obj.addClass('hide');
+                    $('a.ajouteramis'+id).removeClass('hide');
+                }
+            });
+     }
 </script>
 {% endblock %}

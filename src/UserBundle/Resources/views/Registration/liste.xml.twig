@@ -8,8 +8,19 @@
                                             <i class="glyphicon glyphicon-user"></i>
                 {%endif%}<a href="{{path('edit_profil',{'id':u.id})}}">{{ u.username }}</a>]]></cell>
         <cell class="  serializable " type="ro"><![CDATA[<a href="javascript:void(0)">{{ u.email }}</a>]]></cell>
-        <cell class="  serializable" type="ro"><![CDATA[<button type="submit" class="enregistrer" onClick="javascript:modifier($(this), {{ u.id }});" style="background-size: 70% auto;"></button>]]></cell>
-        <cell class="  serializable" type="ro"><![CDATA[<a class="supprimer" data-toggle="modal" data-target="#deleteModal{{ u.id }}" onClick="$('#deleteModal{{ u.id }}').modal('show');" href="javascript:void(0);">&nbsp;</a>]]></cell>
+        <cell class="  serializable" type="ro"><![CDATA[
+            {%if u.id != app.user.id%}
+            <a href="javascript:void(0);" class="ajouteramis{{u.id}} {%if u in app.user.amis%}hide{%endif%}" onClick="javascript:ajouteramis($(this), {{ u.id }});">
+                <i class="glyphicon glyphicon-plus" style="color:blue;"></i>
+            </a>
+
+            <a href="javascript:void(0);" class="retireramis{{u.id}} {%if u not in app.user.amis%}hide{%endif%}" onClick="javascript:retireramis($(this), {{ u.id }});">
+                <i class="glyphicon glyphicon-plus" style="color:red ;"></i>
+            </a>
+            {%endif%}
+            ]]>
+        </cell>
+        
     </row> 
     {% endfor %}
     {% else %}

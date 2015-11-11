@@ -54,6 +54,26 @@ class User extends BaseUser
      * @ORM\JoinColumn(nullable=true)
      */
     protected $jaime;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Fichier", mappedBy="createur")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $fichiercrees;
+    
+     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="utisateurs") 
+     */
+    protected $amis;
+     /**
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="amis") 
+     * @ORM\JoinTable(name="amis",
+     *  joinColumns={@ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")},
+     *  inverseJoinColumns={@ORM\JoinColumn(name="amis_id", referencedColumnName="id")}
+     * )
+     */
+    protected $utisateurs;
     /**
      * Get id
      *
@@ -91,6 +111,7 @@ class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->fichier = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -231,5 +252,105 @@ class User extends BaseUser
     public function getJaime()
     {
         return $this->jaime;
+    }
+ 
+
+    /**
+     * Add fichiercrees
+     *
+     * @param \UserBundle\Entity\Fichier $fichiercrees
+     * @return User
+     */
+    public function addFichiercree(\UserBundle\Entity\Fichier $fichiercrees)
+    {
+        $this->fichiercrees[] = $fichiercrees;
+
+        return $this;
+    }
+
+    /**
+     * Remove fichiercrees
+     *
+     * @param \UserBundle\Entity\Fichier $fichiercrees
+     */
+    public function removeFichiercree(\UserBundle\Entity\Fichier $fichiercrees)
+    {
+        $this->fichiercrees->removeElement($fichiercrees);
+    }
+
+    /**
+     * Get fichiercrees
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFichiercrees()
+    {
+        return $this->fichiercrees;
+    }
+
+    /**
+     * Add amis
+     *
+     * @param \ProjetBundle\Entity\User $amis
+     * @return User
+     */
+    public function addAmi(\ProjetBundle\Entity\User $amis)
+    {
+        $this->amis[] = $amis;
+
+        return $this;
+    }
+
+    /**
+     * Remove amis
+     *
+     * @param \ProjetBundle\Entity\User $amis
+     */
+    public function removeAmi(\ProjetBundle\Entity\User $amis)
+    {
+        $this->amis->removeElement($amis);
+    }
+
+    /**
+     * Get amis
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAmis()
+    {
+        return $this->amis;
+    }
+
+    /**
+     * Add utisateurs
+     *
+     * @param \ProjetBundle\Entity\User $utisateurs
+     * @return User
+     */
+    public function addUtisateur(\ProjetBundle\Entity\User $utisateurs)
+    {
+        $this->utisateurs[] = $utisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Remove utisateurs
+     *
+     * @param \ProjetBundle\Entity\User $utisateurs
+     */
+    public function removeUtisateur(\ProjetBundle\Entity\User $utisateurs)
+    {
+        $this->utisateurs->removeElement($utisateurs);
+    }
+
+    /**
+     * Get utisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUtisateurs()
+    {
+        return $this->utisateurs;
     }
 }

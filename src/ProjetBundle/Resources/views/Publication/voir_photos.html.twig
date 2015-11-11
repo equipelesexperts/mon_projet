@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+{{parent()}}
+<!-- main col left --> 
+<div class="col-sm-12">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h5 class="lead">My photos</h5>
+            <ul class="row">            
+{%for file in fichiers%}
+                <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                    <img class="imagegalery" style="" src="{{ asset('../web/uploads/'~file.nom)}}" /></a>
+                    <h6>Publié le: {{file.date|date('d-m-Y')}}</h6>{%if file.publication is not null%}<a href="{{path('voir_publication',{'id':file.publication.id})}}">More</a>{%endif%}
+                </li>
+            {%endfor%}
+            </ul>
+        </div
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <style>
+        ul {
+            padding:0 0 0 0;
+            margin:0 0 0 0;
+        }
+        ul li {
+            list-style:none;
+            // margin-bottom:25px;
+        }
+        ul li img {
+            cursor: pointer;
+        }
+        img.imagegalery{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    <script>
+        $(document).ready(function() {
+            $('li img.imagegalery').on('click', function() {
+                var src = $(this).attr('src');
+                var img = '<img src="' + src + '" class="img-responsive"/>';
+                $('#myModal').modal();
+                $('#myModal').on('shown.bs.modal', function() {
+                    $('#myModal .modal-body').html(img);
+                });
+                $('#myModal').on('hidden.bs.modal', function() {
+                    $('#myModal .modal-body').html('');
+                });
+            });
+        })
+    </script>
+{% endblock %}
